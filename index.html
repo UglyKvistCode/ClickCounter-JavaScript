@@ -1,10 +1,34 @@
-<html><head><title>ClickCounter-JavaScript</title></head></html>
+
+<html><head><title>ClickCounter-JavaScript</title></head>
 <body>
     <script>
         let counter = 0;
+        document.addEventListener("DOMContentLoaded", function(event){
+            const body = document.querySelector("body");
+            let output = document.createElement("div");
+            output.innerHTML = "Click the button";
+            output.style.fontSize = "2em";
+            output.style.padding = "5px";
+            output.style.fontFamily = "arial";
+            output.setAttribute("class", "message");
+            body.appendChild(output);
+            let btn = document.createElement("button");
+            btn.innerHTML = "click me";
+            btn.style.backgroundColor = "pink";
+            btn.style.textAlign = "center";
+            btn.style.width = "300px";
+            btn.style.height = "300px";
+            btn.style.fontSize = "2em";
+            btn.style.borderRadius = "50%";
+            btn.addEventListener("click",function(){
+            counter++;
+            let mes = "You clicked this " + counter + "times";
+            document.querySelector(".message").innerHTML = mes;
+            })
 
-        
-
-
+            body.appendChild(btn);
+            
+        })
     </script>
 </body>
+</html>
